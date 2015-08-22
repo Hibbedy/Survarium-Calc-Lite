@@ -809,7 +809,7 @@ namespace WindowsFormsApplication1
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://eu.survarium.com/forum/eu-en/viewtopic.php?p=148430&sid=88d1bdfddb6a70584123bc6f99007bc9#p148430");
+            System.Diagnostics.Process.Start("https://eu.survarium.com/forum/eu-en/viewtopic.php?p=148430#p148430");
         }
     }
 }
