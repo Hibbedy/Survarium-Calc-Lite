@@ -33,7 +33,68 @@ namespace WindowsFormsApplication1
             textBox6.Text = "0";
             textBox7.Text = "0";
 
+            selectedLanguage = 0;
+            ChangeLanguage();
         }
+
+        int selectedLanguage;
+
+
+        string s_gun_properties_e = "Gun Properties";
+        string s_basegundamage_e = "BaseGunDamage";
+        string s_basegunpenetration_e = "BaseGunPenetration";
+        string s_dmgmod_e = "Damage Mod";
+        string s_penmod_e = "Penetration Mod";
+        string s_range_e = "Range";
+        string s_rangemod_e = "Range Mod";
+        string s_ammoused_e = "Ammo used";
+        string s_rateoffire_e = "Rate of Fire";
+        string s_armor_properties_e = "Armor Properties";
+        string s_bodyregion_e = "BodyRegion";
+        string s_chest_e = "Chest";
+        string s_head_e = "Head";
+        string s_legsarms_e = "Legs/Arms";
+        string s_handsfeet_e = "Hands/Feet";
+        string s_armor_e = "Armor";
+        string s_exceptions_e = "Exceptions";
+        string s_pleasecheck_e = "Please check if your weapon has an\nunusual effective range:";
+        string s_results_e = "Results";
+        string s_damage_e = "Damage: ";
+        string s_killshots_e = "Killshots: ";
+        string s_killtime_e = "Killtime: ";
+        string s_calculate_e = "Calculate";
+        string s_seconds_e = " seconds";
+        string s_instant_e = "Instant!";
+        string s_notunusual_e = "No unusual effective range";
+        string s_allsg_e = "All shotguns, except Toz34";
+
+        string s_gun_properties_ru = "свойства пистолет";
+        string s_basegundamage_ru = "Базовый урон\nпистолета";
+        string s_basegunpenetration_ru = "база проникновения\n пистолет";
+        string s_dmgmod_ru = "модификация\nповреждения";
+        string s_penmod_ru = "модификация\nпроникновение";
+        string s_range_ru = "диапазон";
+        string s_rangemod_ru = "модификация\nдиапазон";
+        string s_ammoused_ru = "боеприпасы\nиспользуются";
+        string s_rateoffire_ru = "скорость\nстрельбы";
+        string s_armor_properties_ru = "свойства брони";
+        string s_bodyregion_ru = "тело область";
+        string s_chest_ru = "грудь";
+        string s_head_ru = "глава";
+        string s_legsarms_ru = "ноги/оружие";
+        string s_handsfeet_ru = "руки/футов";
+        string s_armor_ru = "броня";
+        string s_exceptions_ru = "исключения";
+        string s_pleasecheck_ru = "Пожалуйста, проверьте, если\nваше оружие имеет необычную\nэффективный диапазон:";
+        string s_results_ru = "результаты";
+        string s_damage_ru = "потрава: ";
+        string s_killshots_ru = "Выстрелов на\nодно убийство: ";
+        string s_killtime_ru = "Время убивать: ";
+        string s_calculate_ru = "вычислять";
+        string s_seconds_ru = " секунд";
+        string s_instant_ru = "мгновенное!";
+        string s_notunusual_ru = "обычно эффективный диапазон";
+        string s_allsg_ru = "все дробовики, кроме Toz34";
 
         int currentrange;
 
@@ -157,51 +218,135 @@ namespace WindowsFormsApplication1
             {
                 if (currentrange < effectiveRange || currentrange == effectiveRange)
                 {
-                    label11.Text = "Damage: " + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
-                    int temp2 = (int)Math.Ceiling((double)(100 / damageDealt));
-                    label15.Text = "Killshots: " + temp2.ToString();
-                    if (temp2 > 1)
+                    if (selectedLanguage == 0)
                     {
-                        float temp3 = temp2 * rof;
-                        label16.Text = "Killtime: " + temp3.ToString() + " seconds";
+                        label11.Text = s_damage_e + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     else
                     {
-                        label16.Text = "Killtime: Instant!";
+                        label11.Text = s_damage_ru + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                    }
+                    int temp2 = (int)Math.Ceiling((double)(100 / damageDealt));
+                    if (selectedLanguage == 0)
+                    {
+                        label15.Text = s_killshots_e + temp2.ToString();
+                    }
+                    else
+                    {
+                        label15.Text = s_killshots_ru + temp2.ToString();
+                    }
+                    if (temp2 > 1)
+                    {
+                        float temp3 = temp2 * rof;
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + temp3.ToString() + s_seconds_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + temp3.ToString() + s_seconds_ru;
+                        }
+                    }
+                    else
+                    {
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + s_instant_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + s_instant_ru;
+                        }
                     }
                     resultparse = damageDealt;
                 }
                 else if((currentrange > effectiveRange) && (currentrange < range))
                 {
                     float temp = damageDealt * (1-((1 - mindmgDistance) / (range - effectiveRange)) * (currentrange - effectiveRange));
-                    label11.Text = "Damage: " + temp.ToString() + " @ " + currentrange.ToString() + " m";
-                    int temp2 = (int)Math.Ceiling((double)(100 / temp));
-                    label15.Text = "Killshots: " + temp2.ToString();
-                    if (temp2 > 1)
+                    if (selectedLanguage == 0)
                     {
-                        float temp3 = temp2 * rof;
-                        label16.Text = "Killtime: " + temp3.ToString() + " seconds";
+                        label11.Text = s_damage_e + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     else
                     {
-                        label16.Text = "Killtime: Instant!";
+                        label11.Text = s_damage_ru + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                    }
+                    int temp2 = (int)Math.Ceiling((double)(100 / temp));
+                    if (selectedLanguage == 0)
+                    {
+                        label15.Text = s_killshots_e + temp2.ToString();
+                    }
+                    else
+                    {
+                        label15.Text = s_killshots_ru + temp2.ToString();
+                    }
+                    if (temp2 > 1)
+                    {
+                        float temp3 = temp2 * rof;
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + temp3.ToString() + s_seconds_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + temp3.ToString() + s_seconds_ru;
+                        }
+                    }
+                    else
+                    {
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + s_instant_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + s_instant_ru;
+                        }
                     }
                     resultparse = temp;
                 }
                 else
                 {
                     float temp = damageDealt * mindmgDistance;
-                    label11.Text = "Damage: " + temp.ToString() + " @ " + currentrange.ToString() + " m";
-                    int temp2 = (int)Math.Ceiling((double)(100 /temp));
-                    label15.Text = "Killshots: " + temp2.ToString();
-                    if (temp2 > 1)
+                    if (selectedLanguage == 0)
                     {
-                        float temp3 = temp2 * rof;
-                        label16.Text = "Killtime: " + temp3.ToString() + " seconds";
+                        label11.Text = s_damage_e + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     else
                     {
-                        label16.Text = "Killtime: Instant!";
+                        label11.Text = s_damage_ru + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                    }
+                    int temp2 = (int)Math.Ceiling((double)(100 /temp));
+                    if (selectedLanguage == 0)
+                    {
+                        label15.Text = s_killshots_e + temp2.ToString();
+                    }
+                    else
+                    {
+                        label15.Text = s_killshots_ru + temp2.ToString();
+                    }
+                    if (temp2 > 1)
+                    {
+                        float temp3 = temp2 * rof;
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + temp3.ToString() + s_seconds_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + temp3.ToString() + s_seconds_ru;
+                        }
+                    }
+                    else
+                    {
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + s_instant_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + s_instant_ru;
+                        }
                     }
                     resultparse = temp;
                 }
@@ -213,51 +358,147 @@ namespace WindowsFormsApplication1
 
                 if (currentrange < tempeffectiveRange || currentrange == tempeffectiveRange)
                 {
-                    label11.Text = "Damage: " + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
-                    int temp2 = (int)Math.Ceiling((double)(100 / damageDealt));
-                    label15.Text = "Killshots: " + temp2.ToString();
-                    if (temp2 > 1)
+                    if (selectedLanguage == 0)
                     {
-                        float temp3 = temp2 * rof;
-                        label16.Text = "Killtime: " + temp3.ToString() + " seconds";
+                        label11.Text = s_damage_e + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     else
                     {
-                        label16.Text = "Killtime: Instant!";
+                        label11.Text = s_damage_ru + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                    }
+                    
+                    int temp2 = (int)Math.Ceiling((double)(100 / damageDealt));
+
+                    if (selectedLanguage == 0)
+                    {
+                        label15.Text = s_killshots_e + temp2.ToString();
+                    }
+                    else
+                    {
+                        label15.Text = s_killshots_ru + temp2.ToString();
+                    }
+
+                    
+                    if (temp2 > 1)
+                    {
+                        float temp3 = temp2 * rof;
+
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + temp3.ToString() + s_seconds_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + temp3.ToString() + s_seconds_ru;
+                        }
+
+                        
+                    }
+                    else
+                    {
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + s_instant_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + s_instant_ru;
+                        }
                     }
                     resultparse = damageDealt;
                 }
                 else if ((currentrange > tempeffectiveRange) && (currentrange < temprange))
                 {
                     float temp = damageDealt * (1 - ((1 - mindmgDistance) / (temprange - tempeffectiveRange)) * (currentrange - tempeffectiveRange));
-                    label11.Text = "Damage: " + temp.ToString() + " @ " + currentrange.ToString() + " m";
-                    int temp2 = (int)Math.Ceiling((double)(100 / temp));
-                    label15.Text = "Killshots: " + temp2.ToString();
-                    if (temp2 > 1)
+
+                    if (selectedLanguage == 0)
                     {
-                        float temp3 = temp2 * rof;
-                        label16.Text = "Killtime: " + temp3.ToString() + " seconds";
+                        label11.Text = s_damage_e + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     else
                     {
-                        label16.Text = "Killtime: Instant!";
+                        label11.Text = s_damage_ru + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                    }
+
+                    int temp2 = (int)Math.Ceiling((double)(100 / temp));
+
+                    if (selectedLanguage == 0)
+                    {
+                        label15.Text = s_killshots_e + temp2.ToString();
+                    }
+                    else
+                    {
+                        label15.Text = s_killshots_ru + temp2.ToString();
+                    }
+
+                    if (temp2 > 1)
+                    {
+                        float temp3 = temp2 * rof;
+                        
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + temp3.ToString() + s_seconds_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + temp3.ToString() + s_seconds_ru;
+                        }
+                    }
+                    else
+                    {
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + s_instant_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + s_instant_ru;
+                        }
                     }
                     resultparse = temp;
                 }
                 else
                 {
                     float temp = damageDealt * mindmgDistance * currAmmoMod;
-                    label11.Text = "Damage: " + temp.ToString() + " @ " + currentrange.ToString() + " m";
-                    int temp2 = (int)Math.Ceiling((double)(100 / temp));
-                    label15.Text = "Killshots: " + temp2.ToString();
-                    if (temp2 > 1)
+                    if (selectedLanguage == 0)
                     {
-                        float temp3 = temp2 * rof;
-                        label16.Text = "Killtime: " + temp3.ToString() + " seconds";
+                        label11.Text = s_damage_e + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     else
                     {
-                        label16.Text = "Killtime: Instant!";
+                        label11.Text = s_damage_ru + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                    }
+                    int temp2 = (int)Math.Ceiling((double)(100 / temp));
+                    if (selectedLanguage == 0)
+                    {
+                        label15.Text = s_killshots_e + temp2.ToString();
+                    }
+                    else
+                    {
+                        label15.Text = s_killshots_ru + temp2.ToString();
+                    }
+                    if (temp2 > 1)
+                    {
+                        float temp3 = temp2 * rof;
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + temp3.ToString() + s_seconds_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + temp3.ToString() + s_seconds_ru;
+                        }
+                    }
+                    else
+                    {
+                        if (selectedLanguage == 0)
+                        {
+                            label16.Text = s_killtime_e + s_instant_e;
+                        }
+                        else
+                        {
+                            label16.Text = s_killtime_ru + s_instant_ru;
+                        }
                     }
                     resultparse = temp;
                 }
@@ -486,6 +727,89 @@ namespace WindowsFormsApplication1
             {
                 Calculate();
             }
+        }
+
+        //Localization
+
+        private void label24_Click(object sender, EventArgs e)
+        {
+            selectedLanguage = 0;
+            ChangeLanguage();
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+            selectedLanguage = 1;
+            ChangeLanguage();
+        }
+
+        void ChangeLanguage()
+        {
+            if (selectedLanguage == 0)
+            {
+                label1.Text = s_basegundamage_e;
+                label2.Text = s_basegunpenetration_e;
+                label5.Text = s_dmgmod_e;
+                label6.Text = s_penmod_e;
+                label7.Text = s_range_e;
+                label8.Text = s_rangemod_e;
+                label9.Text = s_armor_e;
+                label10.Text = s_bodyregion_e;
+                label11.Text = s_damage_e;
+                label15.Text = s_killshots_e;
+                label16.Text = s_killtime_e;
+                label17.Text = s_rateoffire_e;
+                label18.Text = s_pleasecheck_e;
+                label19.Text = s_ammoused_e;
+                label20.Text = s_gun_properties_e;
+                label21.Text = s_armor_properties_e;
+                label22.Text = s_exceptions_e;
+                label23.Text = s_results_e;
+                button1.Text = s_calculate_e;
+
+                comboBox4.Items[0] = s_chest_e;
+                comboBox4.Items[1] = s_head_e;
+                comboBox4.Items[2] = s_legsarms_e;
+                comboBox4.Items[3] = s_handsfeet_e;
+
+                comboBox5.Items[0] = s_notunusual_e;
+                comboBox5.Items[1] = s_allsg_e;
+            }
+            else if (selectedLanguage == 1)
+            {
+                label1.Text = s_basegundamage_ru;
+                label2.Text = s_basegunpenetration_ru;
+                label5.Text = s_dmgmod_ru;
+                label6.Text = s_penmod_ru;
+                label7.Text = s_range_ru;
+                label8.Text = s_rangemod_ru;
+                label9.Text = s_armor_ru;
+                label10.Text = s_bodyregion_ru;
+                label11.Text = s_damage_ru;
+                label15.Text = s_killshots_ru;
+                label16.Text = s_killtime_ru;
+                label17.Text = s_rateoffire_ru;
+                label18.Text = s_pleasecheck_ru;
+                label19.Text = s_ammoused_ru;
+                label20.Text = s_gun_properties_ru;
+                label21.Text = s_armor_properties_ru;
+                label22.Text = s_exceptions_ru;
+                label23.Text = s_results_ru;
+                button1.Text = s_calculate_ru;
+
+                comboBox4.Items[0] = s_chest_ru;
+                comboBox4.Items[1] = s_head_ru;
+                comboBox4.Items[2] = s_legsarms_ru;
+                comboBox4.Items[3] = s_handsfeet_ru;
+
+                comboBox5.Items[0] = s_notunusual_ru;
+                comboBox5.Items[1] = s_allsg_ru;
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://eu.survarium.com/forum/eu-en/viewtopic.php?p=148430&sid=88d1bdfddb6a70584123bc6f99007bc9#p148430");
         }
     }
 }

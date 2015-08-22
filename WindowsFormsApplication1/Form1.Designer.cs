@@ -67,6 +67,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -345,11 +348,11 @@
             // 
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label14.Location = new System.Drawing.Point(12, 500);
+            this.label14.Location = new System.Drawing.Point(12, 511);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(137, 12);
             this.label14.TabIndex = 27;
-            this.label14.Text = "v1.6.3, created by ZerHorster";
+            this.label14.Text = "v1.6.4, created by ZerHorster";
             // 
             // label15
             // 
@@ -391,9 +394,9 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(11, 278);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(164, 26);
+            this.label18.Size = new System.Drawing.Size(179, 26);
             this.label18.TabIndex = 32;
-            this.label18.Text = "Please check if your weapon has\n an unusual effective Range:";
+            this.label18.Text = "Please check if your weapon has an\nunusual effective Range:";
             // 
             // comboBox5
             // 
@@ -514,11 +517,43 @@
             this.label23.TabIndex = 41;
             this.label23.Text = "Results";
             // 
+            // label24
+            // 
+            this.label24.Image = ((System.Drawing.Image)(resources.GetObject("label24.Image")));
+            this.label24.Location = new System.Drawing.Point(304, 515);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(46, 30);
+            this.label24.TabIndex = 42;
+            this.label24.Click += new System.EventHandler(this.label24_Click);
+            // 
+            // label25
+            // 
+            this.label25.Image = ((System.Drawing.Image)(resources.GetObject("label25.Image")));
+            this.label25.Location = new System.Drawing.Point(359, 515);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(46, 30);
+            this.label25.TabIndex = 43;
+            this.label25.Click += new System.EventHandler(this.label25_Click);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(13, 531);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(122, 13);
+            this.linkLabel1.TabIndex = 44;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Calculator Board-Thread";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Survarium_Calc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 517);
+            this.ClientSize = new System.Drawing.Size(435, 554);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
@@ -605,6 +640,9 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
