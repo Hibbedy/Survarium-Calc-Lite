@@ -265,11 +265,11 @@ namespace WindowsFormsApplication1
                     float temp = damageDealt * (1-((1 - mindmgDistance) / (range - effectiveRange)) * (currentrange - effectiveRange));
                     if (selectedLanguage == 0)
                     {
-                        label11.Text = s_damage_e + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                        label11.Text = s_damage_e + temp.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     else
                     {
-                        label11.Text = s_damage_ru + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                        label11.Text = s_damage_ru + temp.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     int temp2 = (int)Math.Ceiling((double)(100 / temp));
                     if (selectedLanguage == 0)
@@ -310,11 +310,11 @@ namespace WindowsFormsApplication1
                     float temp = damageDealt * mindmgDistance;
                     if (selectedLanguage == 0)
                     {
-                        label11.Text = s_damage_e + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                        label11.Text = s_damage_e + temp.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     else
                     {
-                        label11.Text = s_damage_ru + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                        label11.Text = s_damage_ru + temp.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     int temp2 = (int)Math.Ceiling((double)(100 /temp));
                     if (selectedLanguage == 0)
@@ -409,15 +409,15 @@ namespace WindowsFormsApplication1
                 }
                 else if ((currentrange > tempeffectiveRange) && (currentrange < temprange))
                 {
-                    float temp = damageDealt * (1 - ((1 - mindmgDistance) / (temprange - tempeffectiveRange)) * (currentrange - tempeffectiveRange));
+                    float temp = damageDealt * (1 - ((1 - mindmgDistance*currAmmoMod) / (temprange - tempeffectiveRange)) * (currentrange - tempeffectiveRange));
 
                     if (selectedLanguage == 0)
                     {
-                        label11.Text = s_damage_e + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                        label11.Text = s_damage_e + temp.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     else
                     {
-                        label11.Text = s_damage_ru + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                        label11.Text = s_damage_ru + temp.ToString() + " @ " + currentrange.ToString() + " m";
                     }
 
                     int temp2 = (int)Math.Ceiling((double)(100 / temp));
@@ -462,11 +462,11 @@ namespace WindowsFormsApplication1
                     float temp = damageDealt * mindmgDistance * currAmmoMod;
                     if (selectedLanguage == 0)
                     {
-                        label11.Text = s_damage_e + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                        label11.Text = s_damage_e + temp.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     else
                     {
-                        label11.Text = s_damage_ru + damageDealt.ToString() + " @ " + currentrange.ToString() + " m";
+                        label11.Text = s_damage_ru + temp.ToString() + " @ " + currentrange.ToString() + " m";
                     }
                     int temp2 = (int)Math.Ceiling((double)(100 / temp));
                     if (selectedLanguage == 0)
