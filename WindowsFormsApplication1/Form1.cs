@@ -103,16 +103,16 @@ namespace WindowsFormsApplication1
         string s_handsfeet_ru = "Кисти/Ступни";
         string s_armor_ru = "Броня";
         string s_exceptions_ru = "Исключения";
-        string s_pleasecheck_ru = "Пожалуйста убедитесь, что ваше\nоружие имеет обычную\nэффективную дистанцию:";
+        string s_pleasecheck_ru = "Оружие с нестандартной дистанцией:";
         string s_results_ru = "Результаты";
         string s_damage_ru = "Урон: ";
         string s_killshots_ru = "Выстрелов на фраг: ";
         string s_killtime_ru = "Время на фраг: ";
-        string s_calculate_ru = "вычислять";
+        string s_calculate_ru = "Рассчитать";
         string s_seconds_ru = " секунд";
         string s_instant_ru = "мгновенное!";
 
-        string s_notunusual_ru = "Обычная эффективная дистанция";
+        string s_notunusual_ru = "Нет";
         string s_allsg_ru = "все дробовики, кроме ТОЗ-34";
         string s_aps_ru = "АПС";
         string s_asval_ru = "9А-91, АС ВАЛ, СР-3М, ВСК-94, ВСС";

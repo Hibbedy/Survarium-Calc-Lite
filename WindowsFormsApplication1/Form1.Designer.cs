@@ -260,7 +260,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(247, 203);
+            this.label9.Location = new System.Drawing.Point(259, 203);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 16;
@@ -268,7 +268,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(352, 204);
+            this.textBox5.Location = new System.Drawing.Point(378, 200);
             this.textBox5.MaxLength = 3;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(40, 20);
@@ -352,7 +352,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(137, 12);
             this.label14.TabIndex = 27;
-            this.label14.Text = "v1.6.4b, created by ZerHorster";
+            this.label14.Text = "v1.6.4c, created by ZerHorster";
             // 
             // label15
             // 
@@ -392,7 +392,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(11, 270);
+            this.label18.Location = new System.Drawing.Point(11, 278);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(179, 26);
             this.label18.TabIndex = 32;
