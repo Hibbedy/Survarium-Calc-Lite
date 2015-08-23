@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using sur_calc_v3;
+using System.Globalization;
 
 namespace WindowsFormsApplication1
 {
@@ -33,7 +34,16 @@ namespace WindowsFormsApplication1
             textBox6.Text = "0";
             textBox7.Text = "0";
 
-            selectedLanguage = 0;
+
+            if (CultureInfo.InstalledUICulture.Name == "ru" || CultureInfo.InstalledUICulture.Name == "ru-RU")
+            {
+                selectedLanguage = 1;
+            }
+            else
+            {
+                selectedLanguage = 0;
+            }
+            
             ChangeLanguage();
         }
 
@@ -65,36 +75,51 @@ namespace WindowsFormsApplication1
         string s_calculate_e = "Calculate";
         string s_seconds_e = " seconds";
         string s_instant_e = "Instant!";
+
         string s_notunusual_e = "No unusual effective range";
         string s_allsg_e = "All shotguns, except Toz34";
+        string s_aps_e = "APS";
+        string s_asval_e = "9a-91, As Val, SR-3M, VSK, VSS";
+        string s_aksu74_e = "ASK-74U, Ash-12, OTS-14, SCAR-H";
+        string s_fnmini_e = "FN Minimi, PKP, RPD, RPK-47M";
+        string s_sks_e = "SKS, SOK, Socom, Winchester";
+        string s_vepr_e = "Vepr12, Saiga12";
 
-        string s_gun_properties_ru = "свойства пистолет";
-        string s_basegundamage_ru = "Базовый урон\nпистолета";
-        string s_basegunpenetration_ru = "база проникновения\n пистолет";
-        string s_dmgmod_ru = "модификация\nповреждения";
-        string s_penmod_ru = "модификация\nпроникновение";
-        string s_range_ru = "диапазон";
-        string s_rangemod_ru = "модификация\nдиапазон";
-        string s_ammoused_ru = "боеприпасы\nиспользуются";
-        string s_rateoffire_ru = "скорость\nстрельбы";
-        string s_armor_properties_ru = "свойства брони";
-        string s_bodyregion_ru = "тело область";
-        string s_chest_ru = "грудь";
-        string s_head_ru = "глава";
-        string s_legsarms_ru = "ноги/оружие";
-        string s_handsfeet_ru = "руки/футов";
-        string s_armor_ru = "броня";
-        string s_exceptions_ru = "исключения";
-        string s_pleasecheck_ru = "Пожалуйста, проверьте, если\nваше оружие имеет необычную\nэффективный диапазон:";
-        string s_results_ru = "результаты";
-        string s_damage_ru = "потрава: ";
-        string s_killshots_ru = "Выстрелов на\nодно убийство: ";
-        string s_killtime_ru = "Время убивать: ";
+
+        string s_gun_properties_ru = "Характеристики оружия";
+        string s_basegundamage_ru = "Базовый урон";
+        string s_basegunpenetration_ru = "Базовая Бронебойность";
+        string s_dmgmod_ru = "Мод. урона";
+        string s_penmod_ru = "Мод. бронебойности";
+        string s_range_ru = "Дистанция";
+        string s_rangemod_ru = "Мод. дистанции";
+        string s_ammoused_ru = "Патроны";
+        string s_rateoffire_ru = "Скорострельность";
+        string s_armor_properties_ru = "Характеристики брони";
+        string s_bodyregion_ru = "Часть тела";
+        string s_chest_ru = "Торс";
+        string s_head_ru = "Голова";
+        string s_legsarms_ru = "Ноги/Руки";
+        string s_handsfeet_ru = "Кисти/Ступни";
+        string s_armor_ru = "Броня";
+        string s_exceptions_ru = "Исключения";
+        string s_pleasecheck_ru = "Пожалуйста убедитесь, что ваше\nоружие имеет обычную\nэффективную дистанцию:";
+        string s_results_ru = "Результаты";
+        string s_damage_ru = "Урон: ";
+        string s_killshots_ru = "Выстрелов на фраг: ";
+        string s_killtime_ru = "Время на фраг: ";
         string s_calculate_ru = "вычислять";
         string s_seconds_ru = " секунд";
         string s_instant_ru = "мгновенное!";
-        string s_notunusual_ru = "обычно эффективный диапазон";
-        string s_allsg_ru = "все дробовики, кроме Toz34";
+
+        string s_notunusual_ru = "Обычная эффективная дистанция";
+        string s_allsg_ru = "все дробовики, кроме ТОЗ-34";
+        string s_aps_ru = "АПС";
+        string s_asval_ru = "9А-91, АС ВАЛ, СР-3М, ВСК-94, ВСС";
+        string s_aksu74_ru = "АКС-74У, АШ-12, ОЦ-14, SCAR-H";
+        string s_fnmini_ru = "FN Minimi, ПКП, РПД, РПК-74М";
+        string s_sks_ru = "СКС, СОК-94, Socom 16, Wichester";
+        string s_vepr_ru = "Вепрь 12, Сайга 12";
 
         int currentrange;
 
@@ -774,6 +799,12 @@ namespace WindowsFormsApplication1
 
                 comboBox5.Items[0] = s_notunusual_e;
                 comboBox5.Items[1] = s_allsg_e;
+                comboBox5.Items[2] = s_aps_e;
+                comboBox5.Items[3] = s_asval_e;
+                comboBox5.Items[4] = s_aksu74_e;
+                comboBox5.Items[5] = s_fnmini_e;
+                comboBox5.Items[6] = s_sks_e;
+                comboBox5.Items[7] = s_vepr_e;
             }
             else if (selectedLanguage == 1)
             {
@@ -804,6 +835,13 @@ namespace WindowsFormsApplication1
 
                 comboBox5.Items[0] = s_notunusual_ru;
                 comboBox5.Items[1] = s_allsg_ru;
+                comboBox5.Items[2] = s_aps_ru;
+                comboBox5.Items[3] = s_asval_ru;
+                comboBox5.Items[4] = s_aksu74_ru;
+                comboBox5.Items[5] = s_fnmini_ru;
+                comboBox5.Items[6] = s_sks_ru;
+                comboBox5.Items[7] = s_vepr_ru;
+
             }
         }
 
