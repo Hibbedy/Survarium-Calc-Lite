@@ -84,6 +84,7 @@ namespace WindowsFormsApplication1
         string s_fnmini_e = "FN Minimi, PKP, RPD, RPK-47M";
         string s_sks_e = "SKS, SOK, Socom, Winchester";
         string s_vepr_e = "Vepr12, Saiga12";
+        string s_colt = "Colt Python";
 
 
         string s_gun_properties_ru = "Характеристики оружия";
@@ -144,8 +145,6 @@ namespace WindowsFormsApplication1
         List<List<float>> ammoList = new List<List<float>>();
 
         float[] bodyMods = new float[] { 1f, 3f, 0.8f, 0.6f };
-
-        float[] rangeException = new float[] {0f,  }; 
 
         float maxdmgReduction = 0.4f;
 
@@ -800,11 +799,12 @@ namespace WindowsFormsApplication1
                 comboBox5.Items[0] = s_notunusual_e;
                 comboBox5.Items[1] = s_allsg_e;
                 comboBox5.Items[2] = s_aps_e;
-                comboBox5.Items[3] = s_asval_e;
-                comboBox5.Items[4] = s_aksu74_e;
-                comboBox5.Items[5] = s_fnmini_e;
-                comboBox5.Items[6] = s_sks_e;
-                comboBox5.Items[7] = s_vepr_e;
+                comboBox5.Items[3] = s_colt;
+                comboBox5.Items[4] = s_asval_e;
+                comboBox5.Items[5] = s_aksu74_e;
+                comboBox5.Items[6] = s_fnmini_e;
+                comboBox5.Items[7] = s_sks_e;
+                comboBox5.Items[8] = s_vepr_e;
             }
             else if (selectedLanguage == 1)
             {
@@ -836,11 +836,12 @@ namespace WindowsFormsApplication1
                 comboBox5.Items[0] = s_notunusual_ru;
                 comboBox5.Items[1] = s_allsg_ru;
                 comboBox5.Items[2] = s_aps_ru;
-                comboBox5.Items[3] = s_asval_ru;
-                comboBox5.Items[4] = s_aksu74_ru;
-                comboBox5.Items[5] = s_fnmini_ru;
-                comboBox5.Items[6] = s_sks_ru;
-                comboBox5.Items[7] = s_vepr_ru;
+                comboBox5.Items[3] = s_colt;
+                comboBox5.Items[4] = s_asval_ru;
+                comboBox5.Items[5] = s_aksu74_ru;
+                comboBox5.Items[6] = s_fnmini_ru;
+                comboBox5.Items[7] = s_sks_ru;
+                comboBox5.Items[8] = s_vepr_ru;
 
             }
         }
